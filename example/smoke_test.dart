@@ -1,5 +1,4 @@
 import 'package:haveno2dart/haveno2dart.dart';
-import 'package:fixnum/fixnum.dart' as $fixnum;
 
 void main() async {
   print('Starting Haveno2Dart Live Smoke Test...');
