@@ -1,5 +1,6 @@
-/// haveno client wrapper.
-/// grpc daemon access.
+// haveno client wrapper.
+// grpc daemon access.
+library;
 
 export 'src/haveno_client.dart';
 export 'src/generated/grpc.pb.dart';

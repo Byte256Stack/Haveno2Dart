@@ -5,6 +5,7 @@ import 'generated/pb.pb.dart';
 
 import 'socks_transport_connector.dart';
 
+// ignore: implementation_imports
 import 'package:grpc/src/client/channel.dart' as grpc_channel;
 
 /// strongly-typed haveno grpc client.
