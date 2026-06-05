@@ -38,6 +38,7 @@ class TestHavenoClient extends HavenoClient {
     int port = 9000,
     String? socksProxyHost,
     int? socksProxyPort,
+    String? apiPassword,
   }) async {
     final response = await versionClient.getVersion(GetVersionRequest());
     if (response.version.isNotEmpty) {}

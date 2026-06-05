@@ -26,6 +26,7 @@ class HavenoClient {
     int port = 9000,
     String? socksProxyHost,
     int? socksProxyPort,
+    String? apiPassword,
   }) async {
     final options = const ChannelOptions(credentials: ChannelCredentials.insecure());
     
@@ -46,12 +47,16 @@ class HavenoClient {
       );
     }
 
+    final callOptions = apiPassword != null 
+        ? CallOptions(metadata: {'password': apiPassword}) 
+        : null;
+
     // init clients
-    versionClient = GetVersionClient(_channel);
-    walletsClient = WalletsClient(_channel);
-    paymentAccountsClient = PaymentAccountsClient(_channel);
-    offersClient = OffersClient(_channel);
-    tradesClient = TradesClient(_channel);
+    versionClient = GetVersionClient(_channel, options: callOptions);
+    walletsClient = WalletsClient(_channel, options: callOptions);
+    paymentAccountsClient = PaymentAccountsClient(_channel, options: callOptions);
+    offersClient = OffersClient(_channel, options: callOptions);
+    tradesClient = TradesClient(_channel, options: callOptions);
 
     // verify connection
     try {

@@ -5,8 +5,12 @@ void main() async {
   final client = HavenoClient();
 
   try {
-    print('Connecting to daemon (127.0.0.1:9000)...');
-    await client.connect(host: '127.0.0.1', port: 9000);
+    print('Connecting to daemon (172.29.227.253:9999)...');
+    await client.connect(
+      host: '172.29.227.253', 
+      port: 9999,
+      apiPassword: 'apitest',
+    );
     print('Connected.');
 
     final versionResponse = await client.versionClient.getVersion(GetVersionRequest());
@@ -25,7 +29,7 @@ void main() async {
     print('Smoke test OK.');
   } catch (e) {
     print('Smoke test failed: $e');
-    print('Make sure the local Haveno daemon is running on port 9000.');
+    print('Make sure the local Haveno daemon is running on port 9999.');
   } finally {
     await client.disconnect();
   }
